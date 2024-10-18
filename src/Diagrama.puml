@@ -1,0 +1,30 @@
+{@startuml
+ interface MantenimientoVehiculo {
+     + realizarMantenimiento() : void
+     + verificarEstado() : void
+ }
+
+ abstract class VehículoTransportePublico {
+     - capacidadPasajeros : int
+     - velocidadMaxima : double
+     - tipoCombustible : String
+     + calcularTarifa() : double
+     + iniciarRuta() : void
+     + detener() : void
+ }
+
+ class Autobus {
+     + realizarMantenimiento() : void
+     + verificarEstado() : void
+ }
+
+ class Taxi {
+     + realizarMantenimiento() : void
+     + verificarEstado() : void
+ }
+
+ VehículoTransportePublico <|-- Autobus
+ VehículoTransportePublico <|-- Taxi
+ Autobus ..|> MantenimientoVehiculo
+ Taxi ..|> MantenimientoVehiculo
+ @enduml
